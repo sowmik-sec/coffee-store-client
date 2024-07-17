@@ -12,6 +12,21 @@ function SignUp() {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        const createdAt = result.user?.metadata?.creationTime;
+        const user = { email, createdAt };
+        fetch("http://localhost:5000/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              console.log("User added to the database");
+            }
+          });
       })
       .catch((err) => console.error(err));
   };
