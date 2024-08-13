@@ -29,16 +29,13 @@ function UpdateCoffee() {
     };
 
     console.log(updatedCoffee);
-    fetch(
-      `https://46-coffee-store-server-mk2rqiei6-sowmiksecs-projects.vercel.app/coffee/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedCoffee),
-      }
-    )
+    fetch(`https://46-coffee-store-server.vercel.app/coffee/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedCoffee),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

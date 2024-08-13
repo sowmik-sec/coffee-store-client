@@ -14,16 +14,13 @@ function SignUp() {
         console.log(result.user);
         const createdAt = result.user?.metadata?.creationTime;
         const user = { email, createdAt };
-        fetch(
-          "https://46-coffee-store-server-mk2rqiei6-sowmiksecs-projects.vercel.app/user",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(user),
-          }
-        )
+        fetch("https://46-coffee-store-server.vercel.app/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {

@@ -25,16 +25,13 @@ function AddCoffee() {
     };
 
     console.log(newCoffee);
-    fetch(
-      "https://46-coffee-store-server-mk2rqiei6-sowmiksecs-projects.vercel.app/coffee",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newCoffee),
-      }
-    )
+    fetch("https://46-coffee-store-server.vercel.app/coffee", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

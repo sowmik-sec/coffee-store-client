@@ -14,12 +14,9 @@ function CoffeeCard({ coffee, coffees, setCoffees }) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://46-coffee-store-server-mk2rqiei6-sowmiksecs-projects.vercel.app/coffee/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://46-coffee-store-server.vercel.app/coffee/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
